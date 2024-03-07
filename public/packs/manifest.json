@@ -1,0 +1,30 @@
+{
+  "application.js": "/packs/js/application.js",
+  "entrypoints": {
+    "application": {
+      "assets": {
+        "js": [
+          "/packs/js/runtime.js",
+          "/packs/js/application.js"
+        ]
+      }
+    },
+    "hello_react": {
+      "assets": {
+        "js": [
+          "/packs/js/runtime.js",
+          "/packs/js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js",
+          "/packs/js/hello_react.js"
+        ]
+      }
+    }
+  },
+  "hello_react.js": "/packs/js/hello_react.js",
+  "js/application.js.map": "/packs/js/application.js.map",
+  "js/hello_react.js.map": "/packs/js/hello_react.js.map",
+  "js/runtime.js.map": "/packs/js/runtime.js.map",
+  "js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js": "/packs/js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js",
+  "js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js.map": "/packs/js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js.map",
+  "runtime.js": "/packs/js/runtime.js",
+  "static/app/assets/images/softsuaveImage.png": "/packs/static/app/assets/images/softsuaveImage-cbf34529bcfdc0140dab.png"
+}
