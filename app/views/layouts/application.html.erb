@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ResourceManagement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%
+=begin%>
+ <%= javascript_pack_tag "application" %> 
+<%
+=end%>
+  </head>
+
+  <body>
+  <div id="root"></div>
+    <%= yield %>
+  </body>
+</html>

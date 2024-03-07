@@ -1,0 +1,735 @@
+Started GET "/" for 127.0.0.1 at 2024-03-07 17:59:42 +0530
+  
+ActiveRecord::NoDatabaseError (We could not find your database: ResourceManagement_development. Which can be found in the database configuration file located at config/database.yml.
+
+To resolve this issue:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.0.8.1) lib/active_record/connection_adapters/mysql2_adapter.rb:47:in `rescue in new_client'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/mysql2_adapter.rb:43:in `new_client'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `mysql2_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.8.1) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.8.1) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.8.1) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.8.1) lib/active_record/migration.rb:648:in `connection'
+activerecord (7.0.8.1) lib/active_record/migration.rb:643:in `build_watcher'
+activerecord (7.0.8.1) lib/active_record/migration.rb:625:in `block in call'
+activerecord (7.0.8.1) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8.1) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8.1) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8.1) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.1) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+shakapacker (7.2.0) lib/shakapacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.7) lib/rack/proxy.rb:87:in `call'
+railties (7.0.8.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/rails/actions" for 127.0.0.1 at 2024-03-07 17:59:44 +0530
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE DATABASE `ResourceManagement_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE DATABASE `ResourceManagement_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+Started GET "/" for 127.0.0.1 at 2024-03-07 17:59:44 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 94283 exit 1
+OUTPUTS:
+asset js/vendors-node_modules_react-dom_client_js.js 1.07 MiB [emitted] (id hint: vendors) 1 related asset
+asset js/runtime.js 6.94 KiB [emitted] (name: runtime) 1 related asset
+asset js/hello_react.js 2.62 KiB [emitted] (name: hello_react) 1 related asset
+asset js/application.js 2.52 KiB [emitted] (name: application) 1 related asset
+asset manifest.json 925 bytes [emitted]
+Entrypoint application 9.45 KiB (7.29 KiB) = js/runtime.js 6.94 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 1.08 MiB (1.27 MiB) = js/runtime.js 6.94 KiB js/vendors-node_modules_react-dom_client_js.js 1.07 MiB js/hello_react.js 2.62 KiB 3 auxiliary assets
+runtime modules 3.61 KiB 7 modules
+cacheable modules 1.07 MiB
+  modules by path ./node_modules/ 1.07 MiB
+    modules by path ./node_modules/react-dom/ 992 KiB 3 modules
+    modules by path ./node_modules/react/ 85.7 KiB
+      ./node_modules/react/index.js 190 bytes [built] [code generated]
+      ./node_modules/react/cjs/react.development.js 85.5 KiB [built] [code generated]
+    modules by path ./node_modules/scheduler/ 17.3 KiB
+      ./node_modules/scheduler/index.js 198 bytes [built] [code generated]
+      ./node_modules/scheduler/cjs/scheduler.development.js 17.1 KiB [built] [code generated]
+  modules by path ./app/javascript/ 1.43 KiB
+    ./app/javascript/packs/application.js 1000 bytes [built] [code generated]
+    ./app/javascript/packs/hello_react.js 316 bytes [built] [code generated]
+    ./app/javascript/components/App.js 142 bytes [built] [code generated]
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 860 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 1793.5ms | Allocations: 2942)
+  Rendered layout layouts/application.html.erb (Duration: 1877.4ms | Allocations: 37053)
+Completed 500 Internal Server Error in 1883ms (ActiveRecord: 0.0ms | Allocations: 39615)
+
+
+  
+ActionView::Template::Error (To prevent duplicated chunks on the page, you should call javascript_pack_tag only once on the page. Please refer to https://github.com/shakacode/shakapacker/blob/master/README.md#view-helpers-javascript_pack_tag-and-stylesheet_pack_tag for the usage guide):
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application" %>
+    10:     <%= javascript_pack_tag "application" %>
+    11:   </head>
+    12: 
+    13:   <body>
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:00:00 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Everything's up-to-date. Nothing to do
+  Rendered site/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1704)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 6840)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 7747)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:00:03 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Everything's up-to-date. Nothing to do
+  Rendered site/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1467)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 2806)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 3055)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:00:50 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 94515 exit 1
+OUTPUTS:
+asset js/vendors-node_modules_react-dom_client_js.js 1.07 MiB [compared for emit] (id hint: vendors) 1 related asset
+asset js/runtime.js 6.94 KiB [compared for emit] (name: runtime) 1 related asset
+asset js/hello_react.js 2.63 KiB [emitted] (name: hello_react) 1 related asset
+asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+asset manifest.json 925 bytes [compared for emit]
+Entrypoint application 9.45 KiB (7.29 KiB) = js/runtime.js 6.94 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 1.08 MiB (1.27 MiB) = js/runtime.js 6.94 KiB js/vendors-node_modules_react-dom_client_js.js 1.07 MiB js/hello_react.js 2.63 KiB 3 auxiliary assets
+runtime modules 3.61 KiB 7 modules
+cacheable modules 1.07 MiB
+  modules by path ./node_modules/ 1.07 MiB
+    modules by path ./node_modules/react-dom/ 992 KiB 3 modules
+    modules by path ./node_modules/react/ 85.7 KiB
+      ./node_modules/react/index.js 190 bytes [built] [code generated]
+      ./node_modules/react/cjs/react.development.js 85.5 KiB [built] [code generated]
+    modules by path ./node_modules/scheduler/ 17.3 KiB
+      ./node_modules/scheduler/index.js 198 bytes [built] [code generated]
+      ./node_modules/scheduler/cjs/scheduler.development.js 17.1 KiB [built] [code generated]
+  modules by path ./app/javascript/ 1.43 KiB
+    ./app/javascript/packs/application.js 1000 bytes [built] [code generated]
+    ./app/javascript/packs/hello_react.jsx 316 bytes [built] [code generated]
+    ./app/javascript/components/App.jsx 143 bytes [built] [code generated]
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 867 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 1808.0ms | Allocations: 3238)
+  Rendered layout layouts/application.html.erb (Duration: 1866.0ms | Allocations: 13484)
+Completed 200 OK in 1871ms (Views: 1867.5ms | ActiveRecord: 0.0ms | Allocations: 17474)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:09:22 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 98442 exit 1
+OUTPUTS:
+asset js/vendors-node_modules_react-dom_client_js.js 1.07 MiB [compared for emit] (id hint: vendors) 1 related asset
+asset js/runtime.js 6.94 KiB [compared for emit] (name: runtime) 1 related asset
+asset js/hello_react.js 2.63 KiB [compared for emit] (name: hello_react) 1 related asset
+asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+asset manifest.json 925 bytes [compared for emit]
+Entrypoint application 9.45 KiB (7.29 KiB) = js/runtime.js 6.94 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 1.08 MiB (1.27 MiB) = js/runtime.js 6.94 KiB js/vendors-node_modules_react-dom_client_js.js 1.07 MiB js/hello_react.js 2.63 KiB 3 auxiliary assets
+runtime modules 3.61 KiB 7 modules
+cacheable modules 1.07 MiB
+  modules by path ./node_modules/ 1.07 MiB
+    modules by path ./node_modules/react-dom/ 992 KiB 3 modules
+    modules by path ./node_modules/react/ 85.7 KiB
+      ./node_modules/react/index.js 190 bytes [built] [code generated]
+      ./node_modules/react/cjs/react.development.js 85.5 KiB [built] [code generated]
+    modules by path ./node_modules/scheduler/ 17.3 KiB
+      ./node_modules/scheduler/index.js 198 bytes [built] [code generated]
+      ./node_modules/scheduler/cjs/scheduler.development.js 17.1 KiB [built] [code generated]
+  modules by path ./app/javascript/ 1.43 KiB
+    ./app/javascript/packs/application.js 1000 bytes [built] [code generated]
+    ./app/javascript/packs/hello_react.jsx 316 bytes [built] [code generated]
+    ./app/javascript/components/App.jsx 143 bytes [built] [code generated]
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 658 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 1611.0ms | Allocations: 3271)
+  Rendered layout layouts/application.html.erb (Duration: 1626.7ms | Allocations: 13565)
+Completed 200 OK in 1633ms (Views: 1628.5ms | ActiveRecord: 0.0ms | Allocations: 17555)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:10:03 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 98583 exit 1
+OUTPUTS:
+asset js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js 3.42 MiB [emitted] (id hint: vendors) 1 related asset
+asset js/hello_react.js 21 KiB [emitted] (name: hello_react) 1 related asset
+asset js/runtime.js 7.33 KiB [emitted] (name: runtime) 1 related asset
+asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+asset manifest.json 1.2 KiB [emitted]
+Entrypoint application 9.84 KiB (7.6 KiB) = js/runtime.js 7.33 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 3.45 MiB (3.11 MiB) = js/runtime.js 7.33 KiB js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js 3.42 MiB js/hello_react.js 21 KiB 3 auxiliary assets
+orphan modules 1.78 MiB [orphan] 846 modules
+runtime modules 3.82 KiB 8 modules
+cacheable modules 2.6 MiB 517 modules
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 3:0-33
+Module not found: Error: Can't resolve 'dayjs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 4:0-49
+Module not found: Error: Can't resolve 'dayjs/plugin/weekOfYear' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 5:0-69
+Module not found: Error: Can't resolve 'dayjs/plugin/customParseFormat' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 6:0-65
+Module not found: Error: Can't resolve 'dayjs/plugin/localizedFormat' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 7:0-53
+Module not found: Error: Can't resolve 'dayjs/plugin/isBetween' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/resource-management/components/Header/index.jsx 4:0-74
+Module not found: Error: Can't resolve '../../../../assets/images/softsuaveImage.png' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/resource-management/components/Header'
+ @ ./app/javascript/resource-management/index.jsx 4:0-41 33:38-44
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+ERROR in ./app/javascript/resource-management/components/Year/index.jsx 4:0-26
+Module not found: Error: Can't resolve 'dayjs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/resource-management/components/Year'
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-56 7:48-66
+
+11 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 11 errors in 3729 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4803.4ms | Allocations: 3271)
+  Rendered layout layouts/application.html.erb (Duration: 4820.1ms | Allocations: 13599)
+Completed 200 OK in 4826ms (Views: 4821.8ms | ActiveRecord: 0.0ms | Allocations: 17589)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:12:41 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 98843 exit 1
+OUTPUTS:
+assets by status 1.73 MiB [emitted]
+  asset js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee10f5.js 1.72 MiB [emitted] (id hint: vendors) 1 related asset
+  asset js/hello_react.js 8.97 KiB [emitted] (name: hello_react) 1 related asset
+  asset manifest.json 1.2 KiB [emitted] [compared for emit]
+asset js/runtime.js 7.33 KiB [compared for emit] (name: runtime) 1 related asset
+asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+Entrypoint application 9.84 KiB (7.6 KiB) = js/runtime.js 7.33 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 1.74 MiB (1.83 MiB) = js/runtime.js 7.33 KiB js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee10f5.js 1.72 MiB js/hello_react.js 8.97 KiB 3 auxiliary assets
+orphan modules 2 MiB [orphan] 916 modules
+runtime modules 3.82 KiB 8 modules
+cacheable modules 1.53 MiB
+  modules by path ./node_modules/@mui/ 174 KiB 104 modules
+  modules by path ./node_modules/@babel/runtime/helpers/ 5.89 KiB 18 modules
+  modules by path ./node_modules/@emotion/ 74.9 KiB 15 modules
+  modules by path ./node_modules/prop-types/ 34 KiB 7 modules
+  modules by path ./node_modules/stylis/src/*.js 23.3 KiB 7 modules
+  modules by path ./app/javascript/ 4.28 KiB 4 modules
+  modules by path ./node_modules/react/ 127 KiB 4 modules
+  modules by path ./node_modules/react-dom/ 992 KiB 3 modules
+  modules by path ./node_modules/hoist-non-react-statics/ 9.69 KiB 3 modules
+  modules by path ./node_modules/scheduler/ 17.3 KiB 2 modules
+  modules by path ./node_modules/react-is/ 7.38 KiB 2 modules
+  + 14 modules
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/resource-management/components/Header/index.jsx 4:0-74
+Module not found: Error: Can't resolve '../../../../assets/images/softsuaveImage.png' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/resource-management/components/Header'
+ @ ./app/javascript/resource-management/index.jsx 4:0-41 33:38-44
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+5 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 5 errors in 3113 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4167.6ms | Allocations: 3272)
+  Rendered layout layouts/application.html.erb (Duration: 4183.0ms | Allocations: 13562)
+Completed 200 OK in 4190ms (Views: 4186.0ms | ActiveRecord: 0.0ms | Allocations: 17552)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:14:22 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 99128 exit 1
+OUTPUTS:
+assets by path js/*.js 1.74 MiB
+  assets by status 1.72 MiB [compared for emit]
+    asset js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee10f5.js 1.72 MiB [compared for emit] (id hint: vendors) 1 related asset
+    asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+  assets by status 16.7 KiB [emitted]
+    asset js/hello_react.js 9.29 KiB [emitted] (name: hello_react) 1 related asset
+    asset js/runtime.js 7.46 KiB [emitted] (name: runtime) 1 related asset
+asset static/app/assets/images/softsuaveImage-cbf34529bcfdc0140dab.png 6.18 KiB [emitted] [immutable] [from: app/assets/images/softsuaveImage.png] (auxiliary name: hello_react)
+asset manifest.json 1.32 KiB [emitted]
+Entrypoint application 9.98 KiB (7.69 KiB) = js/runtime.js 7.46 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 1.74 MiB (1.83 MiB) = js/runtime.js 7.46 KiB js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee10f5.js 1.72 MiB js/hello_react.js 9.29 KiB 4 auxiliary assets
+orphan modules 2 MiB [orphan] 916 modules
+runtime modules 3.86 KiB 9 modules
+cacheable modules 1.53 MiB (javascript) 6.18 KiB (asset)
+  modules by path ./node_modules/@mui/ 174 KiB 104 modules
+  modules by path ./node_modules/@babel/runtime/helpers/ 5.89 KiB 18 modules
+  modules by path ./node_modules/@emotion/ 74.9 KiB 15 modules
+  modules by path ./node_modules/prop-types/ 34 KiB 7 modules
+  modules by path ./node_modules/stylis/src/*.js 23.3 KiB 7 modules
+  modules by path ./app/ 4.32 KiB (javascript) 6.18 KiB (asset) 5 modules
+  modules by path ./node_modules/react/ 127 KiB 4 modules
+  modules by path ./node_modules/react-dom/ 992 KiB 3 modules
+  modules by path ./node_modules/hoist-non-react-statics/ 9.69 KiB 3 modules
+  modules by path ./node_modules/scheduler/ 17.3 KiB 2 modules
+  modules by path ./node_modules/react-is/ 7.38 KiB 2 modules
+  + 14 modules
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 2963 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4038.7ms | Allocations: 3272)
+  Rendered layout layouts/application.html.erb (Duration: 4059.5ms | Allocations: 17338)
+Completed 200 OK in 4065ms (Views: 4061.1ms | ActiveRecord: 0.0ms | Allocations: 21327)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:17:04 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Everything's up-to-date. Nothing to do
+  Rendered site/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1544)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2999)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 3289)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:17:46 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 99328 exit 1
+OUTPUTS:
+assets by status 6.18 KiB [cached] 1 asset
+assets by status 1.73 MiB [compared for emit]
+  asset js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee10f5.js 1.72 MiB [compared for emit] (id hint: vendors) 1 related asset
+  asset js/runtime.js 7.46 KiB [compared for emit] (name: runtime) 1 related asset
+  asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+  asset manifest.json 1.32 KiB [compared for emit]
+asset js/hello_react.js 9.54 KiB [emitted] (name: hello_react) 1 related asset
+Entrypoint application 9.98 KiB (7.69 KiB) = js/runtime.js 7.46 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 1.74 MiB (1.83 MiB) = js/runtime.js 7.46 KiB js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-ee10f5.js 1.72 MiB js/hello_react.js 9.54 KiB 4 auxiliary assets
+orphan modules 2 MiB [orphan] 916 modules
+runtime modules 3.86 KiB 9 modules
+cacheable modules 1.53 MiB (javascript) 6.18 KiB (asset)
+  modules by path ./node_modules/@mui/ 174 KiB 104 modules
+  modules by path ./node_modules/@babel/runtime/helpers/ 5.89 KiB 18 modules
+  modules by path ./node_modules/@emotion/ 74.9 KiB 15 modules
+  modules by path ./node_modules/prop-types/ 34 KiB 7 modules
+  modules by path ./node_modules/stylis/src/*.js 23.3 KiB 7 modules
+  modules by path ./app/ 4.45 KiB (javascript) 6.18 KiB (asset) 5 modules
+  modules by path ./node_modules/react/ 127 KiB 4 modules
+  modules by path ./node_modules/react-dom/ 992 KiB 3 modules
+  modules by path ./node_modules/hoist-non-react-statics/ 9.69 KiB 3 modules
+  modules by path ./node_modules/scheduler/ 17.3 KiB 2 modules
+  modules by path ./node_modules/react-is/ 7.38 KiB 2 modules
+  + 14 modules
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 3210 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4258.1ms | Allocations: 2497)
+  Rendered layout layouts/application.html.erb (Duration: 4259.9ms | Allocations: 3820)
+Completed 200 OK in 4261ms (Views: 4260.8ms | ActiveRecord: 0.0ms | Allocations: 4055)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:18:10 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 99415 exit 1
+OUTPUTS:
+assets by status 6.18 KiB [cached] 1 asset
+assets by path js/*.js 3.23 MiB
+  assets by status 3.23 MiB [emitted]
+    asset js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-50bb29.js 3.21 MiB [emitted] (id hint: vendors) 1 related asset
+    asset js/hello_react.js 13.5 KiB [emitted] (name: hello_react) 1 related asset
+  assets by status 9.98 KiB [compared for emit]
+    asset js/runtime.js 7.46 KiB [compared for emit] (name: runtime) 1 related asset
+    asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+asset manifest.json 1.32 KiB [emitted] [compared for emit]
+Entrypoint application 9.98 KiB (7.69 KiB) = js/runtime.js 7.46 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 3.23 MiB (2.95 MiB) = js/runtime.js 7.46 KiB js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-50bb29.js 3.21 MiB js/hello_react.js 13.5 KiB 4 auxiliary assets
+orphan modules 1.83 MiB [orphan] 861 modules
+runtime modules 3.86 KiB 9 modules
+cacheable modules 2.46 MiB (javascript) 6.18 KiB (asset) 458 modules
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 3:0-33
+Module not found: Error: Can't resolve 'dayjs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 4:0-49
+Module not found: Error: Can't resolve 'dayjs/plugin/weekOfYear' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 5:0-69
+Module not found: Error: Can't resolve 'dayjs/plugin/customParseFormat' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 6:0-65
+Module not found: Error: Can't resolve 'dayjs/plugin/localizedFormat' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+ERROR in ./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js 7:0-53
+Module not found: Error: Can't resolve 'dayjs/plugin/isBetween' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/node_modules/@mui/x-date-pickers/AdapterDayjs'
+ @ ./node_modules/@mui/x-date-pickers/AdapterDayjs/index.js 1:0-46 1:0-46
+ @ ./app/javascript/resource-management/components/Year/index.jsx 2:0-64 48:17-29
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/resource-management/components/Year/index.jsx 4:0-26
+Module not found: Error: Can't resolve 'dayjs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/resource-management/components/Year'
+ @ ./app/javascript/resource-management/index.jsx 5:0-37 35:38-42
+ @ ./app/javascript/packs/hello_react.jsx 3:0-62 7:48-66
+
+10 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 10 errors in 3554 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4623.3ms | Allocations: 2589)
+  Rendered layout layouts/application.html.erb (Duration: 4624.7ms | Allocations: 3914)
+Completed 200 OK in 4625ms (Views: 4625.1ms | ActiveRecord: 0.0ms | Allocations: 4146)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:18:46 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 99558 exit 1
+OUTPUTS:
+assets by status 6.18 KiB [cached] 1 asset
+assets by path js/*.js 3.25 MiB
+  asset js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-50bb29.js 3.22 MiB [emitted] (id hint: vendors) 1 related asset
+  asset js/hello_react.js 13.5 KiB [emitted] (name: hello_react) 1 related asset
+  asset js/runtime.js 7.48 KiB [emitted] (name: runtime) 1 related asset
+  asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+asset manifest.json 1.32 KiB [compared for emit]
+Entrypoint application 10 KiB (7.71 KiB) = js/runtime.js 7.48 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 3.24 MiB (2.96 MiB) = js/runtime.js 7.48 KiB js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_Box_Box_js-node_-50bb29.js 3.22 MiB js/hello_react.js 13.5 KiB 4 auxiliary assets
+orphan modules 1.83 MiB [orphan] 861 modules
+runtime modules 3.86 KiB 9 modules
+cacheable modules 2.47 MiB (javascript) 6.18 KiB (asset) 463 modules
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 3378 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4460.9ms | Allocations: 2451)
+  Rendered layout layouts/application.html.erb (Duration: 4462.1ms | Allocations: 3776)
+Completed 200 OK in 4463ms (Views: 4462.4ms | ActiveRecord: 0.0ms | Allocations: 4008)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:19:36 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 99654 exit 1
+OUTPUTS:
+assets by status 6.18 KiB [cached] 1 asset
+assets by path js/*.js 3.47 MiB
+  assets by status 3.46 MiB [emitted]
+    asset js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js 3.44 MiB [emitted] (id hint: vendors) 1 related asset
+    asset js/hello_react.js 21.2 KiB [emitted] (name: hello_react) 1 related asset
+  assets by status 10 KiB [compared for emit]
+    asset js/runtime.js 7.48 KiB [compared for emit] (name: runtime) 1 related asset
+    asset js/application.js 2.52 KiB [compared for emit] (name: application) 1 related asset
+asset manifest.json 1.32 KiB [emitted] [compared for emit]
+Entrypoint application 10 KiB (7.71 KiB) = js/runtime.js 7.48 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 3.46 MiB (3.13 MiB) = js/runtime.js 7.48 KiB js/vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a.js 3.44 MiB js/hello_react.js 21.2 KiB 4 auxiliary assets
+orphan modules 1.78 MiB [orphan] 846 modules
+runtime modules 3.86 KiB 9 modules
+cacheable modules 2.61 MiB (javascript) 6.18 KiB (asset) 523 modules
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 3625 ms
+
+  Rendered site/index.html.erb within layouts/application (Duration: 4704.7ms | Allocations: 2456)
+  Rendered layout layouts/application.html.erb (Duration: 4706.2ms | Allocations: 3779)
+Completed 200 OK in 4707ms (Views: 4706.7ms | ActiveRecord: 0.0ms | Allocations: 4016)
+
+
+Started POST "/api/createEmployee" for 127.0.0.1 at 2024-03-07 18:19:53 +0530
+  
+ActionController::RoutingError (No route matches [POST] "/api/createEmployee"):
+  
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:34:29 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Everything's up-to-date. Nothing to do
+  Rendered site/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2147)
+  Rendered layout layouts/application.html.erb (Duration: 26.9ms | Allocations: 17996)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 22064)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-07 18:35:42 +0530
+Processing by SiteController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering site/index.html.erb within layouts/application
+[Shakapacker] Everything's up-to-date. Nothing to do
+  Rendered site/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 2147)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 13445)
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 17438)
+
+
