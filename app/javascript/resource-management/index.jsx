@@ -4,8 +4,8 @@ import { Box, ThemeProvider, createTheme } from "@mui/material";
 import Header from "./components/Header";
 import Year from "./components/Year";
 import CreateEmployee from "./components/CreateEmployee";
-// import EmployeeData from './components/EmployeeData';
-// import MReactTable from './components/MaterialReactTable';
+import FetchEmployee from "./components/FetchEmployee";
+
 const myTheme = createTheme({
   typography: {
     fontFamily: "Avenir Next ",
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   yearAndEmployee: {
     display: "flex",
     justifyContent: "space-between",
-    margin: "15px 10% 0 10%",
+    margin: "15px 10% 10px 10%",
     fontFamily: "Avenir Next",
   },
   main: {
@@ -37,10 +37,9 @@ const ResourceManagement = () => {
           <Year />
           <CreateEmployee setEmployeeRefetch={setEmployeeRefetch} />
         </Box>
-        {/* <Box>
-          <MReactTable /> 
-        <EmployeeData employeeRefetch={employeeRefetch} setEmployeeRefetch={setEmployeeRefetch} /> 
-         </Box> */}
+        <Box>
+          <FetchEmployee employeeRefetch={employeeRefetch} setEmployeeRefetch={setEmployeeRefetch} />
+        </Box>
       </Box>
     </ThemeProvider >
   );
