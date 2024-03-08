@@ -2452,3 +2452,62 @@ Processing by EmployeeController#index as HTML
 Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1027)
 
 
+Started GET "/" for 127.0.0.1 at 2024-03-08 11:12:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+[Shakapacker] Compiling...
+[Shakapacker] 
+COMPILATION FAILED:
+EXIT STATUS: pid 37135 exit 1
+OUTPUTS:
+assets by status 6.18 KiB [cached] 1 asset
+assets by path js/*.js 5.09 MiB
+  asset js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_DialogContentTex-88f90b.js 5.06 MiB [emitted] (id hint: vendors) 1 related asset
+  asset js/hello_react.js 24.5 KiB [emitted] (name: hello_react) 1 related asset
+  asset js/runtime.js 7.48 KiB [emitted] (name: runtime) 1 related asset
+  asset js/application.js 2.52 KiB [emitted] (name: application) 1 related asset
+asset manifest.json 1.32 KiB [emitted]
+Entrypoint application 10 KiB (7.7 KiB) = js/runtime.js 7.48 KiB js/application.js 2.52 KiB 2 auxiliary assets
+Entrypoint hello_react 5.09 MiB (4.45 MiB) = js/runtime.js 7.48 KiB js/vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_DialogContentTex-88f90b.js 5.06 MiB js/hello_react.js 24.5 KiB 4 auxiliary assets
+orphan modules 1.1 MiB [orphan] 696 modules
+runtime modules 3.86 KiB 9 modules
+javascript modules 3.73 MiB 716 modules
+./app/assets/images/softsuaveImage.png 42 bytes (javascript) 6.18 KiB (asset) [built] [code generated]
+
+ERROR in ./app/javascript/packs/application.js 17:0-31
+Module not found: Error: Can't resolve '@rails/ujs' in '/home/softsuave/ROR Series/HTML/Project/Internal Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 18:0-36
+Module not found: Error: Can't resolve 'turbolinks' in '/home/softsuave/ROR Series/HTML/Project/Internal Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 19:0-54
+Module not found: Error: Can't resolve '@rails/activestorage' in '/home/softsuave/ROR Series/HTML/Project/Internal Project/ResourceManagement/app/javascript/packs'
+
+ERROR in ./app/javascript/packs/application.js 20:0-18
+Module not found: Error: Can't resolve 'channels' in '/home/softsuave/ROR Series/HTML/Project/Internal Project/ResourceManagement/app/javascript/packs'
+
+4 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.90.3 compiled with 4 errors in 4170 ms
+
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5271.9ms | Allocations: 3220)
+  Rendered layout layouts/application.html.erb (Duration: 5320.4ms | Allocations: 20786)
+Completed 200 OK in 5328ms (Views: 5322.3ms | ActiveRecord: 0.0ms | Allocations: 24866)
+
+
+Started GET "/api/fetchEmployee" for 127.0.0.1 at 2024-03-08 11:12:39 +0530
+Processing by EmployeeController#index as HTML
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT `employees`.* FROM `employees`[0m
+  ↳ app/controllers/employee_controller.rb:6:in `index'
+Completed 200 OK in 15ms (Views: 8.3ms | ActiveRecord: 2.9ms | Allocations: 6806)
+
+
+Started POST "/api/createEmployee" for 127.0.0.1 at 2024-03-08 11:12:53 +0530
+Processing by EmployeeController#create as HTML
+  Parameters: {"emp_name"=>"123", "employee"=>{"emp_name"=>"123"}}
+Completed 422 Unprocessable Entity in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1583)
+
+
