@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_07_131659) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_12_082931) do
   create_table "billings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "emp_id"
+    t.bigint "emp_id"
     t.string "month_name"
     t.integer "year"
     t.boolean "is_billable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["emp_id"], name: "fk_rails_9dcc6d230a"
   end
 
   create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -26,4 +27,27 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_07_131659) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "resource_billings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "emp_id"
+    t.string "month_name"
+    t.integer "year"
+    t.boolean "is_billable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emp_id"], name: "fk_rails_b0fdd0150d"
+  end
+
+  create_table "resources", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "emp_id"
+    t.string "month_name"
+    t.integer "year"
+    t.boolean "is_billable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emp_id"], name: "fk_rails_ee8f4cd56c"
+  end
+
+  add_foreign_key "billings", "employees", column: "emp_id"
+  add_foreign_key "resource_billings", "employees", column: "emp_id"
+  add_foreign_key "resources", "employees", column: "emp_id"
 end

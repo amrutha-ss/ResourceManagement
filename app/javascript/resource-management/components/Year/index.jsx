@@ -51,7 +51,7 @@ function Year() {
         <DatePicker
           className={classes.yearSelector}
           views={['year']}
-          label="Select Year"
+          defaultValue={dayjs(new Date())}
           minDate={dayjs('2000-04-17')}
           maxDate={dayjs('2024-04-17')}
           slotProps={{ textField: { size: 'small' } }}

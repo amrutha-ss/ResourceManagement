@@ -23,6 +23,9 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
   },
+  fetchEmployeeTable: {
+    margin: '15px 10% 10px 10%',
+  }
 });
 
 const ResourceManagement = () => {
@@ -37,8 +40,8 @@ const ResourceManagement = () => {
           <Year />
           <CreateEmployee setEmployeeRefetch={setEmployeeRefetch} />
         </Box>
-        <Box>
-          <FetchEmployee employeeRefetch={employeeRefetch} setEmployeeRefetch={setEmployeeRefetch} />
+        <Box className={classes.fetchEmployeeTable}>
+          <FetchEmployee className={classes.fetchEmployeeTable} employeeRefetch={employeeRefetch} setEmployeeRefetch={setEmployeeRefetch} />
         </Box>
       </Box>
     </ThemeProvider>
