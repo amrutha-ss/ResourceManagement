@@ -15,9 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_resource_management_index__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 });
 
@@ -175,17 +175,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const columns = [{
-  accessorKey: "id",
-  header: "Id",
+  accessorKey: 'id',
+  header: 'Id',
   size: 100,
   enableColumnFilter: false,
   enableEditing: false,
   enableSorting: false
 }, {
-  accessorKey: "emp_name",
-  header: "Employee Name",
+  accessorKey: 'emp_name',
+  header: 'Employee Name',
   size: 150,
   enableEditing: false,
   enableColumnFilter: true
@@ -193,7 +193,7 @@ const columns = [{
 monthNames.forEach(month => {
   columns.push({
     header: month,
-    footer: "Total",
+    footer: 'Total',
     accessorKey: month.toLowerCase(),
     size: 100,
     enableEditing: true,
@@ -206,7 +206,7 @@ const FetchEmployee = ({
 }) => {
   const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("api/fetchEmployee").then(response => {
+    axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('api/fetchEmployee').then(response => {
       setData(response.data);
       setEmployeeRefetech(false);
     });
@@ -218,14 +218,14 @@ const FetchEmployee = ({
     enablePagination: false,
     initialState: {
       columnPinning: {
-        left: ["id", "emp_name"]
+        left: ['id', 'emp_name']
       }
     },
     enableFullScreenToggle: false,
     enableEditing: true,
-    editDisplayMode: "table",
+    editDisplayMode: 'table',
     //cell
-    columnFilterDisplayMode: "popover"
+    columnFilterDisplayMode: 'popover'
     // MuiTablePaperProps: { PaperProps: { elevation: 0 } }
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(material_react_table__WEBPACK_IMPORTED_MODULE_2__.MaterialReactTable, {
@@ -424,19 +424,19 @@ __webpack_require__.r(__webpack_exports__);
 
 const myTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"])({
   typography: {
-    fontFamily: "Avenir Next "
+    fontFamily: 'Avenir Next '
   }
 });
 const useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_6__["default"])({
   yearAndEmployee: {
-    display: "flex",
-    justifyContent: "space-between",
-    margin: "15px 10% 10px 10%",
-    fontFamily: "Avenir Next"
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '15px 10% 10px 10%',
+    fontFamily: 'Avenir Next'
   },
   main: {
-    display: "flex",
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 const ResourceManagement = () => {

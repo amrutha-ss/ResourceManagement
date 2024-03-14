@@ -14,8 +14,8 @@
  *= require_self
  */
 @font-face {
-  font-family: "Avenir Next";
-  src: url("Avenir Next Font.ttf") format("truetype");
+  font-family: 'Avenir Next';
+  src: url('Avenir Next Font.ttf') format('truetype');
 }
 
 body {
