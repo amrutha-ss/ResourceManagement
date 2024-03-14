@@ -1,28 +1,31 @@
-import React, { useState } from "react";
-import { makeStyles } from "@mui/styles";
-import { Box, ThemeProvider, createTheme } from "@mui/material";
-import Header from "./components/Header";
-import Year from "./components/Year";
-import CreateEmployee from "./components/CreateEmployee";
-import FetchEmployee from "./components/FetchEmployee";
+import React, { useState } from 'react';
+import { makeStyles } from '@mui/styles';
+import { Box, ThemeProvider, createTheme } from '@mui/material';
+import Header from './components/Header';
+import Year from './components/Year';
+import CreateEmployee from './components/CreateEmployee';
+import FetchEmployee from './components/FetchEmployee';
 
 const myTheme = createTheme({
   typography: {
-    fontFamily: "Avenir Next ",
+    fontFamily: 'Avenir Next ',
   },
 });
 
 const useStyles = makeStyles({
   yearAndEmployee: {
-    display: "flex",
-    justifyContent: "space-between",
-    margin: "15px 10% 10px 10%",
-    fontFamily: "Avenir Next",
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '15px 10% 10px 10%',
+    fontFamily: 'Avenir Next',
   },
   main: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
   },
+  fetchEmployeeTable: {
+    margin: '15px 10% 10px 10%',
+  }
 });
 
 const ResourceManagement = () => {
@@ -37,11 +40,11 @@ const ResourceManagement = () => {
           <Year />
           <CreateEmployee setEmployeeRefetch={setEmployeeRefetch} />
         </Box>
-        <Box>
-          <FetchEmployee employeeRefetch={employeeRefetch} setEmployeeRefetch={setEmployeeRefetch} />
+        <Box className={classes.fetchEmployeeTable}>
+          <FetchEmployee className={classes.fetchEmployeeTable} employeeRefetch={employeeRefetch} setEmployeeRefetch={setEmployeeRefetch} />
         </Box>
       </Box>
-    </ThemeProvider >
+    </ThemeProvider>
   );
 };
 

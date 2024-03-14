@@ -2,8 +2,10 @@ class EmployeeController < ApplicationController
     skip_before_action :verify_authenticity_token
 
   def index
-    employee_data=Employee.all
-    render json: employee_data
+    employee_data = Employee.all
+    billing_data=Resource.all
+    combined_data = { employee_data: employee_data, billing_data: billing_data }
+    render json: combined_data
   end
   
   def create

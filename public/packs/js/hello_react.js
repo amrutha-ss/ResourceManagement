@@ -15,9 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_resource_management_index__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 });
 
@@ -170,67 +170,232 @@ function CreateEmployee({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var material_react_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! material-react-table */ "./node_modules/material-react-table/dist/index.esm.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var material_react_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! material-react-table */ "./node_modules/material-react-table/dist/index.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/createTheme.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/ThemeProvider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Dialog/Dialog.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/DialogTitle/DialogTitle.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/DialogContent/DialogContent.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/DialogContentText/DialogContentText.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/DialogActions/DialogActions.js");
 
 
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const columns = [{
-  accessorKey: "id",
-  header: "Id",
-  size: 100,
-  enableColumnFilter: false,
-  enableEditing: false,
-  enableSorting: false
-}, {
-  accessorKey: "emp_name",
-  header: "Employee Name",
-  size: 150,
-  enableEditing: false,
-  enableColumnFilter: true
-}];
-monthNames.forEach(month => {
-  columns.push({
-    header: month,
-    footer: "Total",
-    accessorKey: month.toLowerCase(),
-    size: 100,
-    enableEditing: true,
-    enableColumnFilter: true
-  });
+
+const myTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"])({
+  palette: {
+    primary: {
+      main: 'rgb(103, 79, 192)'
+    }
+  }
 });
 const FetchEmployee = ({
   employeeRefetch,
   setEmployeeRefetech
 }) => {
-  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [combinedData, setCombinedData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [changesMade, setChangesMade] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [changedCellValues, setChangedCellValues] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const columns = [{
+    accessorKey: 'id',
+    header: 'Id',
+    size: 100,
+    enableColumnFilter: false,
+    enableEditing: false,
+    enableSorting: false,
+    enableResizing: false
+  }, {
+    accessorKey: 'emp_name',
+    header: 'Employee Name',
+    size: 200,
+    enableResizing: true,
+    enableEditing: false,
+    enableColumnFilter: true
+  }];
+  monthNames.forEach(month => {
+    columns.push({
+      header: month,
+      accessorKey: month.toLowerCase(),
+      editVariant: "select",
+      editSelectOptions: ["Yes", "No"],
+      size: 100,
+      enableEditing: true,
+      enableColumnFilter: true,
+      enableResizing: false,
+      filterVariant: "select",
+      filterSelectOptions: ["Yes", "No"],
+      aggregationFn: 'sum',
+      Footer: () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null, "Billable: ", footerData[month])
+    });
+  });
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("api/fetchEmployee").then(response => {
-      setData(response.data);
+    axios__WEBPACK_IMPORTED_MODULE_3__["default"].get('api/fetchEmployeeBilling').then(response => {
+      const {
+        billing_data,
+        employee_data
+      } = response.data;
+      const mergedData = mergeData(billing_data, employee_data);
+      setCombinedData(mergedData);
       setEmployeeRefetech(false);
     });
   }, [employeeRefetch]);
-  const table = (0,material_react_table__WEBPACK_IMPORTED_MODULE_2__.useMaterialReactTable)({
+  const mergeData = (billingData, employeeData) => {
+    const employeeMap = {};
+    employeeData.forEach(employee => {
+      employeeMap[employee.id] = {
+        id: employee.id,
+        emp_name: employee.emp_name,
+        ...Object.fromEntries(monthNames.map(month => [month.toLowerCase(), '']))
+      };
+    });
+    billingData.forEach(billing => {
+      const {
+        emp_id,
+        month_name,
+        is_billable
+      } = billing;
+      if (employeeMap[emp_id]) {
+        employeeMap[emp_id][month_name] = is_billable ? "Yes" : "No";
+      }
+    });
+    return Object.values(employeeMap);
+  };
+  const handleCellValueChange = (emp_id, month_name, is_billable) => {
+    const existingIndex = changedCellValues.findIndex(item => item.emp_id === emp_id && item.month_name === month_name);
+    if (existingIndex !== -1) {
+      const newValues = [...changedCellValues];
+      newValues[existingIndex].is_billable = is_billable;
+      setChangedCellValues(newValues);
+    } else {
+      setChangedCellValues(prevValues => [...prevValues, {
+        emp_id,
+        month_name,
+        is_billable
+      }]);
+    }
+    setChangesMade(true);
+  };
+  const handleSave = () => {
+    changedCellValues.forEach(({
+      emp_id,
+      month_name,
+      is_billable
+    }) => {
+      const existingIndex = combinedData.findIndex(item => item.id == emp_id);
+      if (existingIndex !== -1) {
+        const employee = combinedData[existingIndex];
+        if (employee[month_name] !== '') {
+          axios__WEBPACK_IMPORTED_MODULE_3__["default"].patch("api/editBillingInfo", {
+            emp_id,
+            month_name,
+            is_billable
+          }).then(() => {
+            console.log("Edit Done");
+          }).catch(() => {
+            console.log("Edit error");
+          });
+        } else {
+          axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("api/createBilling", {
+            resource: {
+              emp_id,
+              month_name,
+              is_billable
+            }
+          }).then(() => {
+            console.log("Create Done");
+          }).catch(() => {
+            console.log("Create error");
+          });
+        }
+      }
+    });
+    setChangesMade(false);
+    setChangedCellValues([]);
+  };
+  const handleDiscard = () => {
+    setOpen(true);
+  };
+  const handleAgreeClose = () => {
+    setOpen(false);
+    setChangesMade(false);
+    setChangedCellValues([]);
+    window.location.reload();
+  };
+  const handleDisagreeClose = () => {
+    setOpen(false);
+  };
+  const handleCellEdit = (emp_id, month_name, is_billable) => {
+    handleCellValueChange(emp_id, month_name, is_billable);
+    setChangesMade(true);
+  };
+  const footerData = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => {
+    const count = {};
+    monthNames.forEach(month => {
+      count[month] = combinedData.reduce((count, item) => item[month.toLowerCase()] === 'Yes' ? count + 1 : count, 0);
+    });
+    return count;
+  }, [combinedData]);
+  const table = (0,material_react_table__WEBPACK_IMPORTED_MODULE_4__.useMaterialReactTable)({
     columns,
-    data,
+    data: combinedData,
     enableColumnPinning: true,
     enablePagination: false,
     initialState: {
+      showColumnFilters: true,
       columnPinning: {
-        left: ["id", "emp_name"]
+        left: ['id', 'emp_name']
       }
     },
     enableFullScreenToggle: false,
     enableEditing: true,
-    editDisplayMode: "table",
-    //cell
-    columnFilterDisplayMode: "popover"
-    // MuiTablePaperProps: { PaperProps: { elevation: 0 } }
+    editDisplayMode: 'cell',
+    enableBottomToolbar: false,
+    enableColumnResizing: true,
+    positionGlobalFilter: 'right',
+    muiTableBodyCellProps: ({
+      cell
+    }) => ({
+      onBlur: () => {
+        const newValue = cell.getValue();
+        const rowId = cell.row.original.id;
+        const columnId = cell.column.id;
+        handleCellEdit(rowId, columnId, newValue);
+      }
+    }),
+    renderTopToolbarCustomActions: () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], null, changesMade && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      sx: {
+        display: "flex",
+        gap: "5px"
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      variant: "contained",
+      onClick: handleSave
+    }, "SAVE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      variant: "contained",
+      color: "error",
+      onClick: handleDiscard
+    }, "DISCARD")))
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(material_react_table__WEBPACK_IMPORTED_MODULE_2__.MaterialReactTable, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    theme: myTheme
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(material_react_table__WEBPACK_IMPORTED_MODULE_4__.MaterialReactTable, {
     table: table
-  }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    open: open
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], null, "Discard Changes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], null, "Do you want to discard the changes?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onClick: handleDisagreeClose
+  }, "CANCEL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onClick: handleAgreeClose,
+    autoFocus: true,
+    variant: "contained",
+    color: "error"
+  }, "DISCARD"))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (FetchEmployee);
 
@@ -384,7 +549,7 @@ function Year() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_7__.DatePicker, {
     className: classes.yearSelector,
     views: ['year'],
-    label: "Select Year",
+    defaultValue: dayjs__WEBPACK_IMPORTED_MODULE_1___default()(new Date()),
     minDate: dayjs__WEBPACK_IMPORTED_MODULE_1___default()('2000-04-17'),
     maxDate: dayjs__WEBPACK_IMPORTED_MODULE_1___default()('2024-04-17'),
     slotProps: {
@@ -424,19 +589,22 @@ __webpack_require__.r(__webpack_exports__);
 
 const myTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"])({
   typography: {
-    fontFamily: "Avenir Next "
+    fontFamily: 'Avenir Next '
   }
 });
 const useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_6__["default"])({
   yearAndEmployee: {
-    display: "flex",
-    justifyContent: "space-between",
-    margin: "15px 10% 10px 10%",
-    fontFamily: "Avenir Next"
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '15px 10% 10px 10%',
+    fontFamily: 'Avenir Next'
   },
   main: {
-    display: "flex",
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  fetchEmployeeTable: {
+    margin: '15px 10% 10px 10%'
   }
 });
 const ResourceManagement = () => {
@@ -450,7 +618,10 @@ const ResourceManagement = () => {
     className: classes.yearAndEmployee
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Year__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_CreateEmployee__WEBPACK_IMPORTED_MODULE_3__["default"], {
     setEmployeeRefetch: setEmployeeRefetch
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FetchEmployee__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    className: classes.fetchEmployeeTable
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FetchEmployee__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: classes.fetchEmployeeTable,
     employeeRefetch: employeeRefetch,
     setEmployeeRefetch: setEmployeeRefetch
   }))));
