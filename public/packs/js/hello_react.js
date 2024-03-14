@@ -15,9 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_resource_management_index__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 });
 
@@ -158,6 +158,81 @@ function CreateEmployee({
   }, snackbarMessage)));
 }
 /* harmony default export */ __webpack_exports__["default"] = (CreateEmployee);
+
+/***/ }),
+
+/***/ "./app/javascript/resource-management/components/FetchEmployee/index.jsx":
+/*!*******************************************************************************!*\
+  !*** ./app/javascript/resource-management/components/FetchEmployee/index.jsx ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var material_react_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! material-react-table */ "./node_modules/material-react-table/dist/index.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+
+
+
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const columns = [{
+  accessorKey: 'id',
+  header: 'Id',
+  size: 100,
+  enableColumnFilter: false,
+  enableEditing: false,
+  enableSorting: false
+}, {
+  accessorKey: 'emp_name',
+  header: 'Employee Name',
+  size: 150,
+  enableEditing: false,
+  enableColumnFilter: true
+}];
+monthNames.forEach(month => {
+  columns.push({
+    header: month,
+    footer: 'Total',
+    accessorKey: month.toLowerCase(),
+    size: 100,
+    enableEditing: true,
+    enableColumnFilter: true
+  });
+});
+const FetchEmployee = ({
+  employeeRefetch,
+  setEmployeeRefetech
+}) => {
+  const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('api/fetchEmployee').then(response => {
+      setData(response.data);
+      setEmployeeRefetech(false);
+    });
+  }, [employeeRefetch]);
+  const table = (0,material_react_table__WEBPACK_IMPORTED_MODULE_2__.useMaterialReactTable)({
+    columns,
+    data,
+    enableColumnPinning: true,
+    enablePagination: false,
+    initialState: {
+      columnPinning: {
+        left: ['id', 'emp_name']
+      }
+    },
+    enableFullScreenToggle: false,
+    enableEditing: true,
+    editDisplayMode: 'table',
+    //cell
+    columnFilterDisplayMode: 'popover'
+    // MuiTablePaperProps: { PaperProps: { elevation: 0 } }
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(material_react_table__WEBPACK_IMPORTED_MODULE_2__.MaterialReactTable, {
+    table: table
+  }));
+};
+/* harmony default export */ __webpack_exports__["default"] = (FetchEmployee);
 
 /***/ }),
 
@@ -332,48 +407,51 @@ function Year() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/styles */ "./node_modules/@mui/styles/makeStyles/makeStyles.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/createTheme.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/ThemeProvider.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/styles */ "./node_modules/@mui/styles/makeStyles/makeStyles.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/createTheme.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/styles/ThemeProvider.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header */ "./app/javascript/resource-management/components/Header/index.jsx");
 /* harmony import */ var _components_Year__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Year */ "./app/javascript/resource-management/components/Year/index.jsx");
 /* harmony import */ var _components_CreateEmployee__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/CreateEmployee */ "./app/javascript/resource-management/components/CreateEmployee/index.jsx");
+/* harmony import */ var _components_FetchEmployee__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/FetchEmployee */ "./app/javascript/resource-management/components/FetchEmployee/index.jsx");
 
 
 
 
 
 
-// import EmployeeData from './components/EmployeeData';
-// import MReactTable from './components/MaterialReactTable';
-const myTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"])({
+
+const myTheme = (0,_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"])({
   typography: {
-    fontFamily: "Avenir Next "
+    fontFamily: 'Avenir Next '
   }
 });
-const useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_5__["default"])({
+const useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_6__["default"])({
   yearAndEmployee: {
-    display: "flex",
-    justifyContent: "space-between",
-    margin: "15px 10% 0 10%",
-    fontFamily: "Avenir Next"
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '15px 10% 10px 10%',
+    fontFamily: 'Avenir Next'
   },
   main: {
-    display: "flex",
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 const ResourceManagement = () => {
   const classes = useStyles();
   const [employeeRefetch, setEmployeeRefetch] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
     theme: myTheme
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
     className: classes.main
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
     className: classes.yearAndEmployee
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Year__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_CreateEmployee__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    setEmployeeRefetch: setEmployeeRefetch
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FetchEmployee__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    employeeRefetch: employeeRefetch,
     setEmployeeRefetch: setEmployeeRefetch
   }))));
 };
@@ -394,7 +472,7 @@ module.exports = __webpack_require__.p + "static/app/assets/images/softsuaveImag
 },
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, ["vendors-node_modules_mui_material_Alert_Alert_js-node_modules_mui_material_Avatar_Avatar_js-n-3ccf1a"], function() { return __webpack_exec__("./app/javascript/packs/hello_react.jsx"); });
+/******/ __webpack_require__.O(0, ["vendors-node_modules_mui_material_Avatar_Avatar_js-node_modules_mui_material_DialogContentTex-88f90b"], function() { return __webpack_exec__("./app/javascript/packs/hello_react.jsx"); });
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);

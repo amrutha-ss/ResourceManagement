@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('Avenir Next Font.ttf') format('truetype');
+}
+
+body {
+  margin: 0px;
+}
